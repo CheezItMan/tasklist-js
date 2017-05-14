@@ -1,9 +1,38 @@
 <html>
   <head>
-    <title>webpack 2 demo</title>
+    <title>Ada TaskList-JS App</title>
   </head>
   <body>
-    <button type="button" id="myhtmlbutton" class="success button">From HTML!</button>
+    <header>
+
+    </header>
+    <main class="row">
+      <aside class="small-12 large-4 medium-4">
+        <h2>Create a New Task</h2>
+        <form id="new-task">
+          <section class="row" id="title-section">
+            <label class="columns medium-12">Title
+              <input type="text" name="title" id="title" placeholder="Enter the title here" />
+            </label>
+          </section>
+          <section class="row" id="description-section">
+            <label class="columns medium-12">Description
+              <textarea placeholder="None"></textarea>
+            </label>
+          </section>
+          <section class="row" id="buttons-section">
+
+            <input id="completed-checkbox" type="checkbox" class="medium-2 columns">
+            <label for="completed-checkbox" class="medium-4 columns">Completed?</label>
+            <button id="add-task" class="medium-6 button success">Add a Task</button>
+          </section>
+
+        </form>
+      </aside>
+    </main>
     <script src="dist/bundle.js"></script>
+    <footer>
+
+    </footer>
   </body>
 </html>
