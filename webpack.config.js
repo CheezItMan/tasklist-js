@@ -14,7 +14,6 @@ var entry = PRODUCTION ? './src/app/app.js'  :
 
 var plugins = PRODUCTION ? [
                   new webpack.LoaderOptionsPlugin({ minimize: false, debug: false }),
-//                  new webpack.optimize.UglifyJsPlugin(),
                   new ExtractTextPlugin('style-[contenthash:10].css'),
                   new HTMLWebpackPlugin({
                     template: 'index.html'
