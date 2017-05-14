@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "jquery": "^3.2.1",
-    "postcss-flexbugs-fixes": "^3.0.0"
+    "postcss-flexbugs-fixes": "^3.0.0",
+    "backbone": "^1.1.2"
   }
 }
