@@ -14,6 +14,7 @@ var entry = PRODUCTION ? './src/app/index.js'  :
               ];
 
 var plugins = PRODUCTION ? [
+                  new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
                   new webpack.optimize.UglifyJsPlugin(),
                   new ExtractTextPlugin('style-[contenthash:10].css'),
                   new HTMLWebpackPlugin({
@@ -22,13 +23,20 @@ var plugins = PRODUCTION ? [
               ]
               : [
                 new webpack.HotModuleReplacementPlugin(),
-                new ExtractTextPlugin('styles.css')
+                new ExtractTextPlugin('styles.scss')
               ];
 plugins.push(
               new webpack.DefinePlugin({
             		DEVELOPMENT: JSON.stringify(DEVELOPMENT),
             		PRODUCTION: JSON.stringify(PRODUCTION)
             	})
+);
+plugins.push (
+              new webpack.ProvidePlugin({
+                "$": 'jquery',
+                "jQuery": 'jquery',
+                'window.jQuery': 'jquery'
+              })
 );
 
 const cssIdentifier = PRODUCTION ? '[hash:base64:10]' : '[path][name]---[local]';
@@ -43,8 +51,7 @@ module.exports = {
   entry: entry,
   plugins: plugins,
   externals: {
-      jquery: 'jQuery', //jquery is external and available at the global variable jQuery
-      backbone: 'backbone'
+      jquery: 'jQuery' //jquery is external and available at the global variable jQuery
   },
   output: {
 		path: path.join(__dirname, 'dist'),
@@ -58,16 +65,25 @@ module.exports = {
       exclude: /node_modules/
     },
     {
+      test: /(foundation\.core)/,
+      loader: 'exports-loader?foundation=jQuery.fn.foundation'
+    },
+    {
       test: /\.(png|jpg|gif)$/,
       loaders: ['url-loader?limit=10000&name=images/[hash:12].[ext]'],
       exclude: '/node_modules/'
 
     },
     {
-			test: /\.css$/,
+			test: /\.(css|scss)$/,
 			loaders: cssLoader,
 			exclude: /node_modules/
 		}
-  ]
+  ]},
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      foundation: 'foundation-sites/js/foundation.core'
+    }
   }
 };
