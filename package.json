@@ -5,7 +5,9 @@
   "main": "bundle.js",
   "scripts": {
     "build": "rimraf dist && NODE_ENV=production webpack",
-    "start": "NODE_ENV=development webpack-dev-server"
+    "dev": "NODE_ENV=development webpack-dev-server",
+    "start": "node server.js",
+    "postinstall": "webpack -p"
   },
   "keywords": [],
   "author": "",
