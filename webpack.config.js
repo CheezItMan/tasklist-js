@@ -17,6 +17,9 @@ var plugins = PRODUCTION ? [
                   new ExtractTextPlugin('style-[contenthash:10].css'),
                   new HTMLWebpackPlugin({
                     template: 'index.html'
+                  }),
+                  new webpack.optimize.UglifyJsPlugin({
+                    compress: { warnings: false }
                   })
               ]
               : [
