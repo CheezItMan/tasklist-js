@@ -9,6 +9,8 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Task from './models/task';
 
+console.log("Running");
+
 var render = function(task) {
   // Select the template using jQuery
   var template_text = $('#taskItemTemplate').html();
@@ -34,7 +36,7 @@ $(document).ready(function() {
   });
   render(my_task);
   $('#add-task').click( function() {
-
+    console.log("click");
     // Get the values from the fields
     var title = $('#title').val('');
     var description = $('#description').val('');
