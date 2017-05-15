@@ -1,8 +1,8 @@
 // /src/app.js
 // Load Foundation Files
-require('./css/_settings.scss');
-require('./css/foundation.css');
-require('./css/styles.css');
+import _settings  from './css/_settings.scss';
+import foundation  from './css/foundation.css';
+import css from './css/styles.css';
 
 // Import jQuery
 import $ from 'jquery';
@@ -17,7 +17,21 @@ $(document).ready(function() {
     completed: true
   });
 
-  console.log(my_task.get("title") +  " is completed: " + my_task.get("completed"));
+  // Added Code
+    // Select the template using jQuery
+  var template_text = $('#taskItemTemplate').html();
 
+  //console.log(template_text);
+    // Get an underscore template object
+  var template = _.template(template_text);
 
+    // Use the underscore template function to compile the
+    // template and data into raw html.
+  var compiledHTML = template(my_task.toJSON());
+
+  console.log(compiledHTML);
+
+    // append the html to the unordered list.
+  $('.todo-items').append(compiledHTML);
+  // End of new code
 });
