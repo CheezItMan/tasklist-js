@@ -62,13 +62,13 @@ module.exports = {
       exclude: /node_modules/
     },
     {
-      test: /\.(png|jpg|gif|scss)$/,
+      test: /\.(png|jpg|gif)$/,
       loaders: ['url-loader?limit=10000&name=images/[hash:12].[ext]'],
       exclude: '/node_modules/'
 
     },
     {
-			test: /\.css$/,
+			test: /\.(css|scss)$/,
 			loaders: cssLoader,
 			exclude: /node_modules/
 		}
