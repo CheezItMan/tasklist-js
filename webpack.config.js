@@ -75,7 +75,10 @@ module.exports = {
     {
       test: /\.html$/,
       loader: "underscore-template-loader",
-      exclude: /node_modules/
+      exclude: /node_modules/,
+      query: {
+        engine: 'lodash',
+      }
     }
   ]}
 };
