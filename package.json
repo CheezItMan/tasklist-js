@@ -1,5 +1,5 @@
 {
-  "name": "webpack-tutorial",
+  "name": "webpack-tutorial-try2",
   "version": "1.0.0",
   "description": "This is a starter package for using Webpack at Ada Developers Academy",
   "main": "bundle.js",
