@@ -13,11 +13,11 @@ var entry = PRODUCTION ? './src/app.js'  :
               ];
 
 var plugins = PRODUCTION ? [
+                  new webpack.LoaderOptionsPlugin({ minimize: false, debug: false }),
                   new ExtractTextPlugin('style-[contenthash:10].css'),
                   new HTMLWebpackPlugin({
                     template: 'index.html'
-                  }),
-                  new webpack.optimize.UglifyJsPlugin({ sourceMap: true, minimize: true })
+                  })
               ]
               : [
                 new webpack.HotModuleReplacementPlugin()
