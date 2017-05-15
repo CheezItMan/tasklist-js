@@ -1,11 +1,11 @@
-// Load CSS Files
-import '../css/_settings.scss';
-import '../css/foundation.css';
-import '../css/styles.css';
+// /src/app.js
+// Load Foundation Files
+require('./css/_settings.scss');
+require('./css/foundation.css');
+require('./css/styles.css');
 
-// Load jQuery
+// Import jQuery
 import $ from 'jquery';
-import Backbone from 'backbone';
 import _ from 'underscore';
 
 // ready to go

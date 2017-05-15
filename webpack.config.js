@@ -6,8 +6,8 @@ var HTMLWebpackPlugin = require('html-webpack-plugin');
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
-var entry = PRODUCTION ? './src/app/app.js'  :
-              ['./src/app/app.js',
+var entry = PRODUCTION ? './src/app.js'  :
+              ['./src/app.js',
                 'webpack/hot/dev-server',
                 'webpack-dev-server/client?http://localhost:8080'
               ];
