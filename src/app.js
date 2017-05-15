@@ -1,11 +1,11 @@
 // /src/app.js
 // Load Foundation Files
-// import _settings  from './css/_settings.scss';
-// import foundation  from './css/foundation.css';
-// import css from './css/styles.css';
-require('./css/_settings.scss');
-require('./css/foundation.css');
-require('./css/styles.css');
+import _settings  from './css/_settings.scss';
+import foundation  from './css/foundation.css';
+import css from './css/styles.css';
+// require('./css/_settings.scss');
+// require('./css/foundation.css');
+// require('./css/styles.css');
 
 
 
