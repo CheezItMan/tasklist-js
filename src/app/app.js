@@ -11,6 +11,6 @@ import _ from 'underscore';
 // ready to go
 $(document).ready(function() {
 
-  console.log("Starting!");
+  $('section.main-content').append('<p>Hello World!</p>');
 
 });
