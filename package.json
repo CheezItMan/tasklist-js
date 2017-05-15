@@ -21,10 +21,10 @@
     "postcss-flexbugs-fixes": "^3.0.0",
     "postcss-loader": "^2.0.5",
     "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.5",
     "url-loader": "^0.5.8",
     "webpack-dashboard": "^1.0.0-2",
-    "webpack-dev-server": "^2.4.5",
-    "sass-loader": "^6.0.5"
+    "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
     "webpack": "^2.5.1",
