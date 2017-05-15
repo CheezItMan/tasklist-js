@@ -24,7 +24,6 @@
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.5",
     "underscore-template-loader": "^0.7.3",
-    "url-loader": "^0.5.8",
     "webpack-dashboard": "^1.0.0-2",
     "webpack-dev-server": "^2.4.5"
   },
@@ -45,6 +44,7 @@
     "jquery": "^3.2.1",
     "postcss-flexbugs-fixes": "^3.0.0",
     "sass-loader": "^6.0.5",
+    "url-loader": "^0.5.8",
     "underscore-template-loader": "^0.7.3",
     "style-loader": "^0.17.0"
   }
