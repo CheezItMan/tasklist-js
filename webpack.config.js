@@ -18,8 +18,8 @@ var plugins = PRODUCTION ? [
                     template: 'index.html'
                   }),
                   new webpack.optimize.UglifyJsPlugin({
-                      sourceMap: false
-                    })                  
+                      sourcemap: true
+                    })
               ]
               : [
                 new webpack.HotModuleReplacementPlugin()
