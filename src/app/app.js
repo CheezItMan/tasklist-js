@@ -1,7 +1,7 @@
 // Load CSS Files
 import '../css/_settings.scss';
 import '../css/foundation.css';
-import '../css/styles.scss';
+import '../css/styles.css';
 
 // Load jQuery
 import $ from 'jquery';

@@ -21,11 +21,10 @@
     "postcss-flexbugs-fixes": "^3.0.0",
     "postcss-loader": "^2.0.5",
     "rimraf": "^2.6.1",
-    "sass-loader": "^6.0.5",
-    "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
     "webpack-dashboard": "^1.0.0-2",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "sass-loader": "^6.0.5"
   },
   "dependencies": {
     "webpack": "^2.5.1",
@@ -41,6 +40,8 @@
     "backbone": "^1.1.2",
     "express": "4.15.2",
     "jquery": "^3.2.1",
-    "postcss-flexbugs-fixes": "^3.0.0"
+    "postcss-flexbugs-fixes": "^3.0.0",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.17.0"
   }
 }
