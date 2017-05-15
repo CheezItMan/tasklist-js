@@ -22,12 +22,12 @@ $(document).ready(function() {
 
     // Use the underscore template function to compile the
     // template and data into raw html.
-    var compiledHTML = template(task.toJSON());
+    //var compiledHTML = template(task.toJSON());
 
     // append the html to the unordered list.
-    $('.todo-items').append(compiledHTML);
+    //$('.todo-items').append(compiledHTML);
   };
-  
+
   var my_task = new Task({
     title: "Create a model",
     completed: true
