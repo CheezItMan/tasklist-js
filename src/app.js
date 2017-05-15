@@ -9,8 +9,6 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Task from './models/task';
 
-console.log("Running");
-
 var render = function(task) {
   // Select the template using jQuery
   var template_text = $('#taskItemTemplate').html();
