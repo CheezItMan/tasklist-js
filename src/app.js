@@ -9,6 +9,22 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Task from './models/task';
 
+var render = function(task) {
+  // Select the template using jQuery
+  var template_text = $('#taskItemTemplate').html();
+
+  //console.log(template_text);
+  // Get an underscore template object
+  var template = _.template(template_text);
+
+  // Use the underscore template function to compile the
+  // template and data into raw html.
+  var compiledHTML = template(task.toJSON());
+
+  // append the html to the unordered list.
+  $('.todo-items').append(compiledHTML);
+};
+
 // ready to go
 $(document).ready(function() {
 
@@ -16,22 +32,23 @@ $(document).ready(function() {
     title: "Create a model",
     completed: true
   });
+  render(my_task);
+  $('#add-task').click( function() {
 
-  // Added Code
-    // Select the template using jQuery
-  var template_text = $('#taskItemTemplate').html();
+    // Get the values from the fields
+    var title = $('#title').val('');
+    var description = $('#description').val('');
+    var completed = $('#completed-checkbox').is(":checked");
+    $('#completed-checkbox').prop('checked', false);
 
-  //console.log(template_text);
-    // Get an underscore template object
-  var template = _.template(template_text);
+    // Create a new Task
+    var task = new Task({
+      title: title,
+      description: description,
+      completed: completed
+    });
 
-    // Use the underscore template function to compile the
-    // template and data into raw html.
-  var compiledHTML = template(my_task.toJSON());
-
-  console.log(compiledHTML);
-
-    // append the html to the unordered list.
-  $('.todo-items').append(compiledHTML);
-  // End of new code
+    // Add it to the DOM
+    render(task);
+  });
 });

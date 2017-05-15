@@ -19,7 +19,6 @@
 
     <aside class="small-11 large-3 medium-3 columns create-tasklist">
       <h2>Create a New Task</h2>
-      <form id="new-task">
         <section class="row" id="title-section">
           <label class="columns medium-12">Title
             <input type="text" name="title" id="title" placeholder="Enter the title here" />
@@ -27,7 +26,7 @@
         </section>
         <section class="row" id="description-section">
           <label class="columns medium-12">Description
-            <textarea placeholder="None"></textarea>
+            <textarea id="description" placeholder="None"></textarea>
           </label>
         </section>
         <section class="row" id="buttons-section">
@@ -39,7 +38,6 @@
           <button id="add-task" class="medium-3 columns button success">Add a Task</button>
         </section>
 
-      </form>
     </aside>
     <section class="main-content small-12 large-9 medium-9 columns">
       <h2>Todo Items</h2>
