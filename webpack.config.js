@@ -1,9 +1,9 @@
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HTMLWebpackPlugin = require('html-webpack-plugin');
-const DEVELOPMENT = process.env.NODE_ENV === 'development';
 
+const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
 var entry = PRODUCTION ? './src/app/app.js'  :
@@ -13,22 +13,22 @@ var entry = PRODUCTION ? './src/app/app.js'  :
               ];
 
 var plugins = PRODUCTION ? [
-                  new webpack.LoaderOptionsPlugin({ minimize: false, debug: false }),
+                  new webpack.optimize.UglifyJsPlugin(),
                   new ExtractTextPlugin('style-[contenthash:10].css'),
                   new HTMLWebpackPlugin({
                     template: 'index.html'
                   })
               ]
               : [
-                new webpack.HotModuleReplacementPlugin(),
-                new ExtractTextPlugin('styles.scss')
-              ];
+                new webpack.HotModuleReplacementPlugin()
+                ];
 plugins.push(
               new webpack.DefinePlugin({
             		DEVELOPMENT: JSON.stringify(DEVELOPMENT),
             		PRODUCTION: JSON.stringify(PRODUCTION)
             	})
 );
+
 plugins.push (
               new webpack.ProvidePlugin({
                 "$": 'jquery',
@@ -40,7 +40,7 @@ plugins.push (
 
 const cssIdentifier = PRODUCTION ? '[hash:base64:10]' : '[path][name]---[local]';
 
-const cssLoader = PRODUCTION	?	ExtractTextPlugin.extract({
+const cssLoader = PRODUCTION  ?	ExtractTextPlugin.extract({
 			loader: 'css-loader?minimize&localIdentName=' + cssIdentifier
 		})
 	: 	['style-loader', 'css-loader?localIdentName=' + cssIdentifier];
