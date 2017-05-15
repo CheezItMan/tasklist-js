@@ -17,27 +17,7 @@ var plugins = PRODUCTION ? [
                   new HTMLWebpackPlugin({
                     template: 'index.html'
                   }),
-                  new webpack.optimize.UglifyJsPlugin({
-      sourcemap: true,
-      beautify: false,
-      comments: false,
-      compress: {
-        warnings: false,
-        drop_console: true,
-        screw_ie8: true
-      },
-      mangle: {
-        except: [
-          '$', 'webpackJsonp'
-        ],
-        screw_ie8: true,
-        keep_fnames: true
-      },
-      output: {
-        comments: false,
-        screw_ie8: true
-      }
-    })
+                  new webpack.optimize.UglifyJsPlugin({ sourceMap: true, minimize: true })
               ]
               : [
                 new webpack.HotModuleReplacementPlugin()
