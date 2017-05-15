@@ -71,14 +71,6 @@ module.exports = {
 			test: /\.(css|scss)$/,
 			loaders: cssLoader,
 			exclude: /node_modules/
-		},
-    {
-      test: /\.html$/,
-      loader: "underscore-template-loader",
-      exclude: /node_modules/,
-      query: {
-        engine: 'lodash',
-      }
-    }
+		}
   ]}
 };
