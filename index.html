@@ -3,11 +3,19 @@
     <title>Ada TaskList-JS App</title>
   </head>
   <body>
-    <header>
-
+    <header class="row">
+      <aside class="icon medium-4 small-12 columns">
+        <a href="https://tasklist-js.herokuapp.com">
+          <img src="images/logo.png" />
+        </a>
+      </aside>
+      <section class="title medium-8 small-12 columns">
+        <h1>Ada TaskList</h1>
+      </section>
     </header>
     <main class="row">
-      <aside class="small-12 large-4 medium-4">
+
+      <aside class="small-11 large-3 medium-3 columns create-tasklist">
         <h2>Create a New Task</h2>
         <form id="new-task">
           <section class="row" id="title-section">
@@ -21,14 +29,21 @@
             </label>
           </section>
           <section class="row" id="buttons-section">
+            <div class="medium-8 columns">
+              <input id="completed-checkbox" type="checkbox">
+              <label for="completed-checkbox">Completed?</label>
+            </div>
 
-            <input id="completed-checkbox" type="checkbox" class="medium-2 columns">
-            <label for="completed-checkbox" class="medium-4 columns">Completed?</label>
-            <button id="add-task" class="medium-6 button success">Add a Task</button>
+            <button id="add-task" class="medium-3 columns button success">Add a Task</button>
           </section>
 
         </form>
       </aside>
+      <section class="main-content small-12 large-9 medium-9 columns">
+        <ul class="todo-items">
+          
+        </ul>
+      </section>
     </main>
     <script src="dist/bundle.js"></script>
     <footer>

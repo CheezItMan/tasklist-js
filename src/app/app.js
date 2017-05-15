@@ -1,7 +1,8 @@
 // Load CSS Files
-import '../css/styles.scss';
 import '../css/_settings.scss';
 import '../css/foundation.css';
+import '../css/styles.scss';
+
 // Load jQuery
 import $ from 'jquery';
 import Backbone from 'backbone';

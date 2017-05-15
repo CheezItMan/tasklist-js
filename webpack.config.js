@@ -49,9 +49,6 @@ module.exports = {
   devtool: 'source-map',
   entry: entry,
   plugins: plugins,
-  externals: {
-      jquery: 'jQuery' //jquery is external and available at the global variable jQuery
-  },
   output: {
 		path: path.join(__dirname, 'dist'),
 		publicPath: PRODUCTION ? '/' : '/dist/',
