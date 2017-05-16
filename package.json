@@ -7,7 +7,7 @@
     "build": "rimraf dist && NODE_ENV=production webpack",
     "dev": "NODE_ENV=development webpack-dev-server",
     "start": "node server.js",
-    "postinstall": "webpack -p"
+    "postinstall": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -44,8 +44,7 @@
     "jquery": "^3.2.1",
     "postcss-flexbugs-fixes": "^3.0.0",
     "sass-loader": "^6.0.5",
-    "url-loader": "^0.5.8",
-    "underscore-template-loader": "^0.7.3",
-    "style-loader": "^0.17.0"
+    "style-loader": "^0.17.0",
+    "uglifyjs-webpack-plugin": "^0.4.3"
   }
 }

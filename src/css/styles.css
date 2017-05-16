@@ -29,6 +29,10 @@ aside.create-tasklist {
 aside label {
   color: #FFFFFF;
 }
+
+.completed {
+  text-decoration: line-through;
+}
 /*
 * {
   border-style: solid;

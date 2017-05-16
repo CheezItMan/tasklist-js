@@ -3,6 +3,14 @@
 import _settings  from './css/_settings.scss';
 import foundation  from './css/foundation.css';
 import css from './css/styles.css';
+<<<<<<< HEAD
+=======
+// require('./css/_settings.scss');
+// require('./css/foundation.css');
+// require('./css/styles.css');
+
+
+>>>>>>> backbone-models
 
 // Import jQuery & underscore
 import $ from 'jquery';
@@ -34,13 +42,17 @@ $(document).ready(function() {
   });
   render(my_task);
   $('#add-task').click( function() {
-    console.log("click");
+
+
     // Get the values from the fields
-    var title = $('#title').val('');
-    var description = $('#description').val('');
+    var title = $('#title').val();
+    $('#title').val('');
+    var description = $('#description').val();
+    $('#description').val('');
     var completed = $('#completed-checkbox').is(":checked");
     $('#completed-checkbox').prop('checked', false);
 
+    console.log("Title = " + title);
     // Create a new Task
     var task = new Task({
       title: title,
