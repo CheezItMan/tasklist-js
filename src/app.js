@@ -13,6 +13,7 @@ import css from './css/styles.css';
 import $ from 'jquery';
 import _ from 'underscore';
 import Task from './models/task';
+import TaskList from './collections/task_list';
 
 var render = function(task) {
   // Select the template using jQuery
@@ -32,12 +33,20 @@ var render = function(task) {
 
 // ready to go
 $(document).ready(function() {
-
-  var my_task = new Task({
+  var taskData = [{
     title: "Create a model",
     completed: true
+  },
+  {
+    title: "Create a collection",
+    completed: false
+  }];
+  var taskList = new TaskList(taskData);
+
+  taskList.each(function(task) {
+    render(task);
   });
-  render(my_task);
+
   $('#add-task').click( function() {
 
     // Get the values from the fields
@@ -56,7 +65,9 @@ $(document).ready(function() {
       completed: completed
     });
 
-    // Add it to the DOM
-    render(task);
+    // Render the list to the DOM
+    taskList.each(function(task) {
+      render(task);
+    });
   });
 });
