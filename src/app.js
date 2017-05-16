@@ -3,14 +3,7 @@
 import _settings  from './css/_settings.scss';
 import foundation  from './css/foundation.css';
 import css from './css/styles.css';
-<<<<<<< HEAD
-=======
-// require('./css/_settings.scss');
-// require('./css/foundation.css');
-// require('./css/styles.css');
 
-
->>>>>>> backbone-models
 
 // Import jQuery & underscore
 import $ from 'jquery';
