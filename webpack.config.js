@@ -8,43 +8,40 @@ const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
 var entry = PRODUCTION ? './src/app.js'  :
-              ['./src/app.js',
-                'webpack/hot/dev-server',
-                'webpack-dev-server/client?http://localhost:8080'
-              ];
+['./src/app.js',
+'webpack/hot/dev-server',
+'webpack-dev-server/client?http://localhost:8080'
+];
 var plugins = PRODUCTION ? [
-                  new webpack.LoaderOptionsPlugin({ minimize: false, debug: false }),
-                  new ExtractTextPlugin('style-[contenthash:10].css'),
-                  new HTMLWebpackPlugin({
-                    template: 'index.html'
-                  })
-              ]
-              : [
-                new webpack.HotModuleReplacementPlugin(),
-                new ExtractTextPlugin('styles.scss')
-              ];
+  new webpack.LoaderOptionsPlugin({ minimize: false, debug: false }),
+  new ExtractTextPlugin('style-[contenthash:10].css')
+]
+: [
+  new webpack.HotModuleReplacementPlugin(),
+  new ExtractTextPlugin('styles.scss')
+];
 
 plugins.push(
-              new webpack.DefinePlugin({
-                        DEVELOPMENT: JSON.stringify(DEVELOPMENT),
-                        PRODUCTION: JSON.stringify(PRODUCTION)
-                })
+  new webpack.DefinePlugin({
+    DEVELOPMENT: JSON.stringify(DEVELOPMENT),
+    PRODUCTION: JSON.stringify(PRODUCTION)
+  })
 );
 plugins.push (
-              new webpack.ProvidePlugin({
-                "$": 'jquery',
-                "jQuery": 'jquery',
-                'window.jQuery': 'jquery'
-              })
+  new webpack.ProvidePlugin({
+    "$": 'jquery',
+    "jQuery": 'jquery',
+    'window.jQuery': 'jquery'
+  })
 );
 
 
 const cssIdentifier = PRODUCTION ? '[hash:base64:10]' : '[path][name]---[local]';
 
 const cssLoader = PRODUCTION    ?       ExtractTextPlugin.extract({
-                        loader: 'css-loader?minimize&localIdentName=' + cssIdentifier
-                })
-        :       ['style-loader', 'css-loader?localIdentName=' + cssIdentifier];
+  loader: 'css-loader?minimize&localIdentName=' + cssIdentifier
+})
+:       ['style-loader', 'css-loader?localIdentName=' + cssIdentifier];
 
 
 module.exports = {
@@ -52,15 +49,15 @@ module.exports = {
   entry: entry,
   plugins: plugins,
   output: {
-                path: path.join(__dirname, 'dist'),
-                publicPath: PRODUCTION ? '/' : '/dist/',
-                filename: PRODUCTION ? 'bundle.[hash:12].min.js' : 'bundle.js'
-        },
+    path: path.join(__dirname, 'dist'),
+    publicPath: PRODUCTION ? '/' : '/dist/',
+    filename: PRODUCTION ? 'bundle.[hash:12].min.js' : 'bundle.js'
+  },
   module: {
     loaders: [{
       test: /\.js$/,
       loaders: ['babel-loader'],
-     exclude: /node_modules/
+      exclude: /node_modules/
     },
     {
       test: /\.(png|jpg|gif)$/,
@@ -69,9 +66,9 @@ module.exports = {
 
     },
     {
-                        test: /\.(css|scss)$/,
-                        loaders: cssLoader,
-                        exclude: /node_modules/
-                }
+      test: /\.(css|scss)$/,
+      loaders: cssLoader,
+      exclude: /node_modules/
+    }
   ]}
 };

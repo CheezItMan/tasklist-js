@@ -41,11 +41,14 @@ $(document).ready(function() {
   $('#add-task').click( function() {
 
     // Get the values from the fields
-    var title = $('#title').val('');
-    var description = $('#description').val('');
+    var title = $('#title').val();
+    $('#title').val('');
+    var description = $('#description').val();
+    $('#description').val('');
     var completed = $('#completed-checkbox').is(":checked");
     $('#completed-checkbox').prop('checked', false);
 
+    console.log("Title = " + title);
     // Create a new Task
     var task = new Task({
       title: title,
