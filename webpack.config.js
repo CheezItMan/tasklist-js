@@ -13,7 +13,6 @@ var entry = PRODUCTION ? './src/app.js'  :
 'webpack-dev-server/client?http://localhost:8080'
 ];
 var plugins = PRODUCTION ? [
-ß
   new webpack.LoaderOptionsPlugin({ minimize: false, debug: false }),
   new ExtractTextPlugin('style-[contenthash:10].css')
 ]
