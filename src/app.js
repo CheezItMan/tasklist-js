@@ -31,7 +31,6 @@ var render = function(task) {
   $('.todo-items').append(compiledHTML);
 };
 
-// ready to go
 $(document).ready(function() {
   var taskData = [{
     title: "Create a model",

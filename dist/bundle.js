@@ -70,6 +70,26 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _backbone = __webpack_require__(2);
+
+var _backbone2 = _interopRequireDefault(_backbone);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Task = _backbone2.default.Model.extend({}); // src/models/task.js
+exports.default = Task;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * jQuery JavaScript Library v3.2.1
  * https://jquery.com/
@@ -10327,7 +10347,7 @@ return jQuery;
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Backbone.js 1.3.3
@@ -10346,7 +10366,7 @@ return jQuery;
 
   // Set up Backbone appropriately for the environment. Start with AMD.
   if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(9), __webpack_require__(0), exports], __WEBPACK_AMD_DEFINE_RESULT__ = function(_, $, exports) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(9), __webpack_require__(1), exports], __WEBPACK_AMD_DEFINE_RESULT__ = function(_, $, exports) {
       // Export global even in AMD case in case this script is loaded with
       // others that may still expect a global Backbone.
       root.Backbone = factory(root, exports, _, $);
@@ -12255,7 +12275,7 @@ return jQuery;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12265,11 +12285,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _backbone = __webpack_require__(1);
+var _backbone = __webpack_require__(2);
 
 var _backbone2 = _interopRequireDefault(_backbone);
 
-var _task = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./models/task\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var _task = __webpack_require__(0);
 
 var _task2 = _interopRequireDefault(_task);
 
@@ -12281,26 +12301,6 @@ var TaskList = _backbone2.default.Collection.extend({
 });
 
 exports.default = TaskList;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _backbone = __webpack_require__(1);
-
-var _backbone2 = _interopRequireDefault(_backbone);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Task = _backbone2.default.Model.extend({}); // src/models/task.js
-exports.default = Task;
 
 /***/ }),
 /* 4 */
@@ -13894,7 +13894,7 @@ var _styles = __webpack_require__(6);
 
 var _styles2 = _interopRequireDefault(_styles);
 
-var _jquery = __webpack_require__(0);
+var _jquery = __webpack_require__(1);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -13902,11 +13902,11 @@ var _underscore = __webpack_require__(7);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _task = __webpack_require__(3);
+var _task = __webpack_require__(0);
 
 var _task2 = _interopRequireDefault(_task);
 
-var _task_list = __webpack_require__(2);
+var _task_list = __webpack_require__(3);
 
 var _task_list2 = _interopRequireDefault(_task_list);
 
