@@ -33,10 +33,6 @@ aside label {
 .completed {
   text-decoration: line-through;
 }
-
-div {
-  display: inline;
-}
 /*
 * {
   border-style: solid;

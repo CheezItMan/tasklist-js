@@ -3,15 +3,17 @@
 import _settings  from './css/_settings.scss';
 import foundation  from './css/foundation.css';
 import css from './css/styles.css';
+// require('./css/_settings.scss');
+// require('./css/foundation.css');
+// require('./css/styles.css');
+
+
 
 // Import jQuery
 import $ from 'jquery';
 import _ from 'underscore';
 import Task from './models/task';
 import TaskList from './collections/task_list';
-import TaskView from './views/task_view';
-
-var taskList;
 
 var render = function(task) {
   // Select the template using jQuery
@@ -27,9 +29,6 @@ var render = function(task) {
 
   // append the html to the unordered list.
   $('.todo-items').append(compiledHTML);
-  $('li.task-item:last').find('button.alert').click ({taskCid: task.cid}, function(params) {
-          taskList.remove(params.data.taskCid);
-      });
 };
 
 var renderList = function(taskList) {
@@ -37,14 +36,10 @@ var renderList = function(taskList) {
   $('.todo-items').empty();
   // Iterate through the list rendering each Task
   taskList.each(function(task) {
-    // Create a new TaskView with the model & template
-    var taskView = new TaskView({
-      model: task,
-      template: _.template($('#taskItemTemplate').html())
+    render(task);
+    $('main li.task-item:last').find('button.alert').click ({taskCid: task.cid}, function(params) {
+      taskList.remove(params.data.taskCid);
     });
-    // Then render the TaskView
-    // And append the resulting HTML to the DOM.
-    $('.todo-items').append(taskView.render().$el);
   });
 };
 
@@ -57,11 +52,11 @@ $(document).ready(function() {
     title: "Create a collection",
     completed: false
   }];
-  taskList = new TaskList(taskData);
-  taskList.on("update", function() {
-    renderList(taskList);
-  });
+  var taskList = new TaskList(taskData);
 
+  taskList.on("remove", function(eventName  ) {
+    renderList(taskList)
+  } );
   renderList(taskList);
 });
 
@@ -82,8 +77,15 @@ $(document).ready(function() {
 };
 
 $('#add-task').click( function() {
+
     // Create a new Task
     var task = new Task( readNewTaskForm() );
-    // Add it to the list
+
+    // Add the Task to the list
     taskList.add(task);
+    // Clear the Unordered list
+    $('.todo-items').empty();
+
+    // re-render the list
+    renderList(taskList);
 });
