@@ -10,6 +10,8 @@ import _ from 'underscore';
 import Task from './models/task';
 import TaskList from './collections/task_list';
 import TaskView from './views/task_view';
+import TaskListView from './views/task_list_view';
+
 
 var taskList;
 
@@ -62,7 +64,12 @@ $(document).ready(function() {
     renderList(taskList);
   });
 
-  renderList(taskList);
+  var taskListView = new TaskListView({
+    model: taskList,
+    template: _.template($('#taskItemTemplate').html()),
+    el: 'main'
+  });
+  taskListView.render();
 });
 
   var readNewTaskForm = function() {
@@ -80,10 +87,3 @@ $(document).ready(function() {
     completed: completed
   };
 };
-
-$('#add-task').click( function() {
-    // Create a new Task
-    var task = new Task( readNewTaskForm() );
-    // Add it to the list
-    taskList.add(task);
-});
