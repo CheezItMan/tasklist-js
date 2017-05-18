@@ -6,6 +6,7 @@ import Task from '../models/task.js';
 var TaskView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
+    this.$el.addClass("task-item");
     this.$el.addClass("column");
     this.$el.addClass("column-block");
   },

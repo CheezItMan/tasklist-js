@@ -18,7 +18,9 @@ var TaskListView = Backbone.View.extend({
       // Create a new TaskView with the model & template
       var taskView = new TaskView({
         model: task,
-        template: that.template
+        template: that.template,
+        classes: that.classes,
+        tagName: 'li'
       });
       // Then render the TaskView
       // And append the resulting HTML to the DOM.
