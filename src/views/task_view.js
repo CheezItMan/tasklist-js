@@ -9,6 +9,10 @@ var TaskView = Backbone.View.extend({
     this.$el.addClass("task-item");
     this.$el.addClass("column");
     this.$el.addClass("column-block");
+    var that = this;
+    this.model.on("change", function() {
+      that.render();
+    });
   },
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
@@ -24,7 +28,6 @@ var TaskView = Backbone.View.extend({
   },
   toggleComplete: function(e) {
     this.model.toggleComplete();
-    this.render();
   }
 });
 
