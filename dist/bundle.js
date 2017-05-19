@@ -13877,6 +13877,10 @@ var TaskView = _backbone2.default.View.extend({
     this.$el.addClass("task-item");
     this.$el.addClass("column");
     this.$el.addClass("column-block");
+    var that = this;
+    this.model.on("change", function () {
+      that.render();
+    });
   },
   render: function render() {
     this.$el.html(this.template(this.model.toJSON()));
@@ -13892,7 +13896,6 @@ var TaskView = _backbone2.default.View.extend({
   },
   toggleComplete: function toggleComplete(e) {
     this.model.toggleComplete();
-    this.render();
   }
 });
 
