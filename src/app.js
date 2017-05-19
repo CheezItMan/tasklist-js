@@ -4,7 +4,6 @@ import _settings  from './css/_settings.scss';
 import foundation  from './css/foundation.css';
 import css from './css/styles.css';
 
-
 // Import jQuery & underscore
 import $ from 'jquery';
 import _ from 'underscore';

@@ -14,7 +14,7 @@ var entry = PRODUCTION ? './src/app.js'  :
 ];
 var plugins = PRODUCTION ? [
   new webpack.LoaderOptionsPlugin({ minimize: false, debug: false }),
-  new ExtractTextPlugin('style-[contenthash:10].css')
+  new ExtractTextPlugin('styles.css')
 ]
 : [
   new webpack.HotModuleReplacementPlugin(),
@@ -52,7 +52,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: PRODUCTION ? '/' : '/dist/',
-    filename: PRODUCTION ? 'bundle.[hash:12].min.js' : 'bundle.js'
+    filename: PRODUCTION ? 'bundle.js' : 'bundle.js'
   },
   module: {
     loaders: [{
