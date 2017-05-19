@@ -1,4 +1,4 @@
-// app/collections/task_list.js
+// ./collections/task_list.js
 import Backbone from 'backbone';
 import Task from '../models/task';
 
